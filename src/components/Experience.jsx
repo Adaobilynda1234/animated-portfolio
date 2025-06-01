@@ -6,12 +6,20 @@ const experiences = [
   {
     company: "Wellahealth",
     period: "2024 - Present",
-    description: "Description of your experience in this company.",
+    description: "Developed and implemented responsive user interfaces for healthcare fintech applications using React, TypeScript, and Bootstrap.
+Collaborated with cross-functional teams to enhance user experience, ensuring accessibility and mobile responsiveness across various devices.
+Optimized application performance by identifying and resolving UI bugs, reducing load time, and improving efficiency.
+Integrated APIs to display real-time data, enabling better user interaction and seamless navigation within the application.
+Participated in code reviews and implemented feedback to ensure clean, maintainable, and scalable code.",
   },
   {
     company: "Access Bank",
     period: "2023 - 2024",
-    description: "Description of your experience in this company.",
+    description:"Developed and implemented responsive user interfaces for healthcare fintech applications using React, TypeScript, and Bootstrap.
+Collaborated with cross-functional teams to enhance user experience, ensuring accessibility and mobile responsiveness across various devices.
+Optimized application performance by identifying and resolving UI bugs, reducing load time, and improving efficiency.
+Integrated APIs to display real-time data, enabling better user interaction and seamless navigation within the application.
+Participated in code reviews and implemented feedback to ensure clean, maintainable, and scalable code."
   },
 ];
 
