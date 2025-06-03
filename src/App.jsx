@@ -2,6 +2,7 @@ import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Skills from "./components/Skills";
+import Portfolio from "./components/Portfolio";
 
 export default function App() {
   return (
@@ -9,7 +10,7 @@ export default function App() {
       <Navbar />
       {/* <Hero /> */}
       <Skills />
-      {/* <Portfolio /> */}
+      <Portfolio />
       <Experience />
       {/* <Contact /> */}
       <Footer />
