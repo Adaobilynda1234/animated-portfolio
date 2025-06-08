@@ -49,7 +49,7 @@ const Hero = () => {
             className="text-gray-200 md:text-7xl text-5xl tracking-tight mb-4"
           >
             HEY, I AM <br />
-            <span className="text-purple-500">JOHN DOE</span>
+            <span className="text-purple-500">Adaobi okwuosa</span>
           </motion.p>
 
           <motion.p
@@ -59,7 +59,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 1 }}
             className="text-gray-300 max-w-[300px] md:max-w-[500px] md:text-2xl text-lg mb-6"
           >
-            I am a passionate fullstack developer with over 5 years of
+            I am a passionate fullstack developer with over 1 years of
             experience.
           </motion.p>
 

@@ -37,7 +37,7 @@ const Navbar = () => {
         className="max-w-[1300px] mx-auto  flex justify-between text-gray-200
         text-xl items-center px-12 h-20"
       >
-        <a href="#">J.Doe</a>
+        <a href="#">Adaobi.L</a>
 
         <ul className="hidden md:flex gap-12 z-10 cursor-pointer">
           <li>
