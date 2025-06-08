@@ -6,15 +6,6 @@ body {
   background-color: #190b1f;
 }
 
-/* Utility remains the same as it's already standard CSS */
-.shiny-effect {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  background: radial-gradient(circle, rgba(178, 19, 202, 0.2), transparent 70%);
-}
-/* Method 2: Alternative using CSS custom properties */
 @layer components {
   h2 {
     font-size: var(--text-xl);
@@ -37,4 +28,11 @@ body {
   .bg-primary-color {
     background-color: var(--purple-600);
   }
+}
+.shiny-effect {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle, rgba(178, 19, 202, 0.2), transparent 70%);
 }
