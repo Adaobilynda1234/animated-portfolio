@@ -4,7 +4,7 @@ import { TypeAnimation } from "react-type-animation";
 import ShinyEffect from "./ShinyEffect";
 import {
   AiOutlineGithub,
-  AiOutlineInstagram,
+  AiOutlineTwitter,
   AiOutlineLink,
   AiOutlineLinkedin,
 } from "react-icons/ai";
@@ -31,9 +31,9 @@ const Hero = () => {
             sequence={[
               "Fullstack Dev",
               1000,
-              "Webdesigner",
+              "Frontend Dev",
               1000,
-              "Consultant",
+              "Technical writer",
               1000,
             ]}
             speed={50}
@@ -76,22 +76,34 @@ const Hero = () => {
                 boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.3)",
               }}
               className="z-10 cursor-pointer font-bold text-gray-200 md:w-auto p-4 border
-                                     border-purple-400 rounded-xl"
+                         border-purple-400 rounded-xl"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/cv.pdf"; // Path to your CV in public folder
+                link.download = "Adaobi_CV.pdf"; // Custom filename for download
+                link.click();
+              }}
             >
               Download CV
             </motion.button>
 
             <div className="flex gap-6 flex-row text-4xl md:text-6xl text-purple-400 z-20">
-              <motion.a whileHover={{ scale: 1.2 }} href="#">
+              <motion.a
+                whileHover={{ scale: 1.2 }}
+                href="https://github.com/Adaobilynda1234"
+              >
                 <AiOutlineGithub />
               </motion.a>
 
-              <motion.a whileHover={{ scale: 1.2 }} href="#">
+              <motion.a
+                whileHover={{ scale: 1.2 }}
+                href="https://www.linkedin.com/in/adaobi-okwuosa"
+              >
                 <AiOutlineLinkedin />
               </motion.a>
 
-              <motion.a whileHover={{ scale: 1.2 }} href="#">
-                <AiOutlineInstagram />
+              <motion.a whileHover={{ scale: 1.2 }} href="https://x.com/mdaobi">
+                <AiOutlineTwitter />
               </motion.a>
             </div>
           </motion.div>

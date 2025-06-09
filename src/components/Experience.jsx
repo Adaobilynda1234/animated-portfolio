@@ -11,7 +11,7 @@ const experiences = [
     company: "Access Bank",
     period: "2023 - 2024",
     description:
-      "Developed and implemented responsive user interfaces for healthcare fintech applications using React, TypeScript, and Bootstrap. Collaborated with cross-functional teams to enhance user experience, ensuring accessibility and mobile responsiveness across various devices. Optimized application performance by identifying and resolving UI bugs, reducing load time, and improving efficiency. Integrated APIs to display real-time data, enabling better user interaction and seamless navigation within the application. Participated in code reviews and implemented feedback to ensure clean, maintainable, and scalable code.",
+      "Analyzed and visualized data for over 70,000 terminals in different states across Nigeria.Utilized Excel to clean, manipulate, and analyze terminal data to track business performance.Communicated findings and recommendations to stakeholders, resulting in improved decision-making and increased revenue.",
   },
 ];
 
