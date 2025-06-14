@@ -37,7 +37,7 @@ const projects = [
   },
   {
     img: project4,
-    title: "Project #3",
+    title: "Project #4",
     description: "An E-commerce application built with React and Node.js.",
     links: {
       site: "https://ecommerce-omega-nine-50.vercel.app/",
