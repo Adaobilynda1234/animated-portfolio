@@ -2,6 +2,7 @@ import React from "react";
 import project1 from "../assets/quiz.jpg";
 import project2 from "../assets/Trakmama.jpg";
 import project3 from "../assets/chatapp.jpg";
+import project4 from "../assets/ecommerce.jpg";
 
 import { AiFillGithub, AiOutlineGithub } from "react-icons/ai";
 import Reveal from "./Reveal";
@@ -32,6 +33,15 @@ const projects = [
     links: {
       site: "https://react-ai-chatbot-azure.vercel.app/",
       github: "https://github.com/Adaobilynda1234/react-ai-chatbot",
+    },
+  },
+  {
+    img: project4,
+    title: "Project #3",
+    description: "An E-commerce application built with React and Node.js.",
+    links: {
+      site: "https://ecommerce-omega-nine-50.vercel.app/",
+      github: "https://github.com/Adaobilynda1234/ecommerce",
     },
   },
 ];
