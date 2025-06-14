@@ -2,7 +2,7 @@ import React from "react";
 import project1 from "../assets/quiz.jpg";
 import project2 from "../assets/Trakmama.jpg";
 import project3 from "../assets/chatapp.jpg";
-import project4 from "../assets/ecommerce.jpg";
+import project4 from "../assets/ecommerce.png";
 
 import { AiFillGithub, AiOutlineGithub } from "react-icons/ai";
 import Reveal from "./Reveal";
