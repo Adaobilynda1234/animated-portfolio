@@ -38,7 +38,8 @@ const projects = [
   {
     img: project4,
     title: "Project #4",
-    description: "An E-commerce application built with React.",
+    description:
+      "An E-commerce application built with React intergrated with paystack.",
     links: {
       site: "https://ecommerce-omega-nine-50.vercel.app/",
       github: "https://github.com/Adaobilynda1234/ecommerce",
