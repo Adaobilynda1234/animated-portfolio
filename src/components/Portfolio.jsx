@@ -3,6 +3,7 @@ import project1 from "../assets/quiz.jpg";
 import project2 from "../assets/Trakmama.jpg";
 import project3 from "../assets/chatapp.jpg";
 import project4 from "../assets/ecommerce.png";
+import project5 from "../assets/lawfirm.png";
 
 import { AiFillGithub, AiOutlineGithub } from "react-icons/ai";
 import Reveal from "./Reveal";
@@ -43,6 +44,15 @@ const projects = [
     links: {
       site: "https://ecommerce-omega-nine-50.vercel.app/",
       github: "https://github.com/Adaobilynda1234/ecommerce",
+    },
+  },
+  {
+    img: project5,
+    title: "Project #5",
+    description: "law firm app using React.",
+    links: {
+      site: "https://sorenksattorneys.vercel.app/",
+      github: "https://github.com/Adaobilynda1234/sorenksattorneys",
     },
   },
 ];
