@@ -21,7 +21,8 @@ const projects = [
   {
     img: project2,
     title: "Project #2",
-    description: "A fullstack application built with React and node.js.",
+    description:
+      "A fullstack application trakmama built with React and node.js.",
     links: {
       site: "https://trakmama-project.vercel.app/",
       github: "https://github.com/Adaobilynda1234/Trakmama-project",
