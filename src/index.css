@@ -4,6 +4,7 @@
 body {
   font-family: "Space Grotesk", sans-serif;
   background-color: #190b1f;
+  color: #ffffff; /* Add global text color */
 }
 
 @layer components {
