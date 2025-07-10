@@ -1,9 +1,8 @@
 import React from "react";
-import project1 from "../assets/quiz.jpg";
-import project2 from "../assets/Trakmama.jpg";
-import project3 from "../assets/chatapp.jpg";
-import project4 from "../assets/ecommerce.png";
-import project5 from "../assets/lawfirm.png";
+import project1 from "../assets/lawfirm.png";
+import project2 from "../assets/chatapp.jpg";
+import project3 from "../assets/ecommerce.png";
+import project4 from "../assets/quiz.jpg";
 
 import { AiFillGithub, AiOutlineGithub } from "react-icons/ai";
 import Reveal from "./Reveal";
@@ -12,25 +11,16 @@ const projects = [
   {
     img: project1,
     title: "Project #1",
-    description: "Quiz app  using React.",
+    description: "law firm app using React.",
     links: {
-      site: "https://react-quiz-app-sigma-inky.vercel.app/",
-      github: "https://github.com/Adaobilynda1234/React-Quiz-App",
+      site: "https://sorenksattorneys.vercel.app/",
+      github: "https://github.com/Adaobilynda1234/sorenksattorneys",
     },
   },
+
   {
     img: project2,
     title: "Project #2",
-    description:
-      "A fullstack application trakmama built with React and node.js.",
-    links: {
-      site: "https://trakmama-project.vercel.app/",
-      github: "https://github.com/Adaobilynda1234/Trakmama-project",
-    },
-  },
-  {
-    img: project3,
-    title: "Project #3",
     description: "An Ai chatapp using react and Gemini api",
     links: {
       site: "https://react-ai-chatbot-azure.vercel.app/",
@@ -38,8 +28,8 @@ const projects = [
     },
   },
   {
-    img: project4,
-    title: "Project #4",
+    img: project3,
+    title: "Project #3",
     description:
       "An E-commerce application built with React intergrated with paystack.",
     links: {
@@ -48,12 +38,12 @@ const projects = [
     },
   },
   {
-    img: project5,
-    title: "Project #5",
-    description: "law firm app using React.",
+    img: project4,
+    title: "Project #4",
+    description: "Quiz app  using React.",
     links: {
-      site: "https://sorenksattorneys.vercel.app/",
-      github: "https://github.com/Adaobilynda1234/sorenksattorneys",
+      site: "https://react-quiz-app-sigma-inky.vercel.app/",
+      github: "https://github.com/Adaobilynda1234/React-Quiz-App",
     },
   },
 ];
