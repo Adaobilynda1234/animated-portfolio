@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import React, { useState, useEffect } from "react";
+import {
+  AiFillLinkedin,
+  AiFillGithub,
+  AiOutlineMail,
+} from "react-icons/ai";
 import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 
@@ -12,6 +16,15 @@ const Contact = () => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
+  // Auto-dismiss status message after 5s
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => setSubmitStatus(null), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   // Validation functions
   const validateName = (name) => {
@@ -37,28 +50,18 @@ const Contact = () => {
     return "";
   };
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    // Clear error when user starts typing
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitStatus(null);
 
-    // Validate all fields
     const nameError = validateName(formData.name);
     const emailError = validateEmail(formData.email);
     const messageError = validateMessage(formData.textarea);
@@ -68,103 +71,128 @@ const Contact = () => {
       email: emailError,
       textarea: messageError,
     };
-
     setErrors(newErrors);
 
-    // Check if there are any errors
-    if (nameError || emailError || messageError) {
-      return;
-    }
+    if (nameError || emailError || messageError) return;
 
     setIsSubmitting(true);
 
     try {
-      // Submit to getform.io
       const response = await fetch("https://getform.io/f/adrrjmxa", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        // Reset form on success
-        setFormData({
-          name: "",
-          email: "",
-          textarea: "",
-        });
-        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", textarea: "" });
+        setSubmitStatus("success");
       } else {
         throw new Error("Failed to send message");
       }
     } catch (error) {
-      alert("Failed to send message. Please try again.");
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const inputBase =
+    "w-full rounded-md border bg-transparent py-2 pl-3 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/30 transition";
+
   return (
     <div className="px-6 max-w-[1000px] mx-auto md:my-12" id="contact">
       <Reveal>
-        <div className="grid md:grid-cols-2 place-items-center">
-          <div>
+        <div className="grid md:grid-cols-2 place-items-center gap-8">
+          {/* LEFT: Heading, blurb, stats, social */}
+          <div className="w-full">
             <div className="text-gray-300 my-3">
-              <h3 className="text-4xl font-semibold mb-5">
-                About <span>Me</span>
-              </h3>
-              <p className="text-justify leading-7 w-11/12 mx-auto">
-                I am passionate about building excellent software that improves
-                the lives of those around me. I specialize in creating
-                AI-powered softwares for clients ranging from individuals and
-                small-businesses all the way to large enterprise corporations.
-                What would you do if you had a software expert available at your
-                fingertips?
+              <h2 className="text-4xl font-semibold mb-5">
+                Get In <span>Touch</span>
+              </h2>
+              <p className="leading-7 w-11/12">
+                I'm a full-stack engineer who enjoys building software that
+                genuinely helps people — from polished interfaces to the APIs
+                and infrastructure behind them. Always happy to talk about new
+                opportunities, collaborations, or interesting technical
+                problems.
               </p>
             </div>
 
-            <div className="flex mt-10 items-center gap-7">
-              <div className="bg-gray-800/40 p-4 rounded-lg">
-                <h3 className="md:text-4xl text-2xl font-semibold text-white">
-                  7<span>+</span>
+            <div className="flex mt-8 items-center gap-4 md:gap-6">
+              <div className="bg-gray-800/40 px-4 py-3 rounded-lg flex-1 text-center">
+                <h3 className="md:text-3xl text-2xl font-semibold text-white">
+                  6<span>+</span>
                 </h3>
-                <p className="text-xs md:text-base text-purple-400">
-                  <span>Projects</span>
+                <p className="text-xs md:text-sm text-purple-400">Projects</p>
+              </div>
+
+              <div className="bg-gray-800/40 px-4 py-3 rounded-lg flex-1 text-center">
+                <h3 className="md:text-3xl text-2xl font-semibold text-white">
+                  2<span>+</span>
+                </h3>
+                <p className="text-xs md:text-sm text-purple-400">
+                  Years Experience
                 </p>
               </div>
 
-              <div className="bg-gray-800/40 p-5 rounded-lg">
-                <h3 className="md:text-4xl text-2xl font-semibold text-white">
-                  1<span>+</span>
-                </h3>
-                <p className="text-xs md:text-base text-purple-400">
-                  <span>years of experience</span>
-                </p>
-              </div>
-
-              <div className="bg-gray-800/40 p-5 rounded-lg">
-                <h3 className="md:text-4xl text-2xl font-semibold text-white">
+              <div className="bg-gray-800/40 px-4 py-3 rounded-lg flex-1 text-center">
+                <h3 className="md:text-3xl text-2xl font-semibold text-white">
                   5<span>+</span>
                 </h3>
-                <p className="text-xs md:text-base text-purple-400">
-                  <span>happy clients</span>
+                <p className="text-xs md:text-sm text-purple-400">
+                  Certifications
                 </p>
               </div>
             </div>
+
+            <div className="mt-8 flex items-center gap-4 text-gray-300">
+              <span className="text-sm">Or reach me at:</span>
+              <motion.a
+                whileHover={{ scale: 1.15 }}
+                href="mailto:adaobilynda1234@gmail.com"
+                className="text-2xl text-purple-400 hover:text-purple-300 transition"
+                aria-label="Email"
+              >
+                <AiOutlineMail />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.15 }}
+                href="https://www.linkedin.com/in/adaobi-okwuosa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl text-purple-400 hover:text-purple-300 transition"
+                aria-label="LinkedIn"
+              >
+                <AiFillLinkedin />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.15 }}
+                href="https://github.com/Adaobilynda1234"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl text-purple-400 hover:text-purple-300 transition"
+                aria-label="GitHub"
+              >
+                <AiFillGithub />
+              </motion.a>
+            </div>
           </div>
 
+          {/* RIGHT: form */}
           <form
             onSubmit={handleSubmit}
-            className="max-w-6xl p-5 md:p-12"
-            id="form"
+            className="w-full max-w-md p-5 md:p-8"
+            noValidate
           >
-            <p className="text-gray-100 font-bold text-xl mb-2">
-              Let´s connect!
+            <p className="text-gray-100 font-bold text-xl mb-4">
+              Let's connect!
             </p>
 
-            <div className="mb-2">
+            <div className="mb-3">
+              <label htmlFor="name" className="sr-only">
+                Your name
+              </label>
               <input
                 type="text"
                 id="name"
@@ -172,16 +200,25 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full rounded-md border py-2 pl-2 pr-4 text-white ${
-                  errors.name ? "border-red-500" : "border-purple-600"
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? "name-error" : undefined}
+                className={`${inputBase} ${
+                  errors.name
+                    ? "border-red-500 focus:border-red-400"
+                    : "border-purple-600 focus:border-purple-400"
                 }`}
               />
               {errors.name && (
-                <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+                <p id="name-error" className="text-red-400 text-sm mt-1">
+                  {errors.name}
+                </p>
               )}
             </div>
 
-            <div className="mb-2">
+            <div className="mb-3">
+              <label htmlFor="email" className="sr-only">
+                Your email
+              </label>
               <input
                 type="email"
                 id="email"
@@ -189,44 +226,79 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full rounded-md border py-2 pl-2 pr-4 text-white ${
-                  errors.email ? "border-red-500" : "border-purple-600"
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                className={`${inputBase} ${
+                  errors.email
+                    ? "border-red-500 focus:border-red-400"
+                    : "border-purple-600 focus:border-purple-400"
                 }`}
               />
               {errors.email && (
-                <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+                <p id="email-error" className="text-red-400 text-sm mt-1">
+                  {errors.email}
+                </p>
               )}
             </div>
 
-            <div className="mb-2">
+            <div className="mb-3">
+              <label htmlFor="textarea" className="sr-only">
+                Your message
+              </label>
               <textarea
                 name="textarea"
                 id="textarea"
-                cols="30"
                 rows="4"
                 placeholder="Your Message ..."
                 value={formData.textarea}
                 onChange={handleChange}
-                className={`w-full rounded-md border py-2 pl-2 pr-4 text-white ${
-                  errors.textarea ? "border-red-500" : "border-purple-600"
+                aria-invalid={!!errors.textarea}
+                aria-describedby={errors.textarea ? "msg-error" : undefined}
+                className={`${inputBase} ${
+                  errors.textarea
+                    ? "border-red-500 focus:border-red-400"
+                    : "border-purple-600 focus:border-purple-400"
                 }`}
               />
               {errors.textarea && (
-                <p className="text-red-400 text-sm mt-1">{errors.textarea}</p>
+                <p id="msg-error" className="text-red-400 text-sm mt-1">
+                  {errors.textarea}
+                </p>
               )}
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-3 rounded-md text-gray-100 font-semibold text-xl ${
+              className={`w-full py-3 rounded-md text-gray-100 font-semibold text-xl transition ${
                 isSubmitting
                   ? "bg-gray-600 cursor-not-allowed"
-                  : "bg-primary-color hover:bg-gray-700"
+                  : "bg-primary-color hover:bg-purple-700"
               }`}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
+
+            {submitStatus === "success" && (
+              <motion.p
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                role="status"
+                className="mt-3 text-center text-green-400 text-sm bg-green-900/20 border border-green-700/40 rounded-md py-2"
+              >
+                Message sent! I'll get back to you soon.
+              </motion.p>
+            )}
+            {submitStatus === "error" && (
+              <motion.p
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                role="alert"
+                className="mt-3 text-center text-red-400 text-sm bg-red-900/20 border border-red-700/40 rounded-md py-2"
+              >
+                Something went wrong. Please try again or email me directly.
+              </motion.p>
+            )}
           </form>
         </div>
       </Reveal>
