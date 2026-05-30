@@ -77,18 +77,7 @@ const projects = [
       github: "https://github.com/Adaobilynda1234/sorenksattorneys",
     },
   },
-  {
-    img: project_chatapp,
-    title: "AI Chat Application",
-    subtitle: "Real-Time AI Chat with Gemini API",
-    description:
-      "Conversational AI chat application integrated with Google's Gemini API. Handles streaming responses, multi-turn conversations, and a responsive chat interface.",
-    tech: ["React", "Gemini API", "Tailwind CSS"],
-    links: {
-      site: "https://react-ai-chatbot-azure.vercel.app/",
-      github: "https://github.com/Adaobilynda1234/react-ai-chatbot",
-    },
-  },
+
   {
     img: project_ecommerce,
     title: "E-Commerce Platform",
